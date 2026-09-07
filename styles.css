@@ -2,19 +2,26 @@
    CSS Variables & Global Styles
    ====================================== */
 :root {
-    /* Brand Colors */
-    --brown: #5C3D2E;
-    --brown-dark: #3E2A1E;
-    --brown-light: #8B6E5A;
-    --orange: #E8741A;
-    --orange-dark: #C95E0E;
-    --orange-light: #F5A623;
-    --wine: #722F37;
-    --wine-dark: #5A2028;
-    --wine-light: #9E4A52;
+    /* Brand Colors — Bronze / Aged Wood / Weathered Steel */
+    --brown: #4A3220;
+    --brown-dark: #2E1F14;
+    --brown-light: #8A6642;
+    --orange: #C17B2E;
+    --orange-dark: #8F5A1E;
+    --orange-light: #E8A857;
+    --orange-vivid: #E2792A;
+    --wine: #6B3A28;
+    --wine-dark: #3E2216;
+    --wine-light: #8B5A3E;
     --white: #FFFFFF;
-    --off-white: #F8F5F1;
-    --cream: #FFF8F0;
+    --off-white: #F3EDE2;
+    --cream: #FAF3E6;
+
+    /* Weathered Steel */
+    --steel: #8A8D91;
+    --steel-dark: #55585C;
+    --steel-light: #B9BCC0;
+    --steel-sheen: rgba(255, 255, 255, 0.07);
 
     /* Neutral */
     --gray-50: #FAFAFA;
@@ -38,7 +45,7 @@
 
     /* Gradients */
     --gradient-hero: linear-gradient(135deg, var(--brown-dark) 0%, var(--wine-dark) 50%, var(--gray-900) 100%);
-    --gradient-primary: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
+    --gradient-primary: linear-gradient(135deg, var(--orange-vivid) 0%, var(--orange) 55%, var(--orange-dark) 100%);
     --gradient-wine: linear-gradient(135deg, var(--wine) 0%, var(--wine-dark) 100%);
     --gradient-brown: linear-gradient(135deg, var(--brown) 0%, var(--brown-dark) 100%);
     --gradient-card: linear-gradient(145deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
@@ -48,12 +55,12 @@
     --shadow-md: 0 4px 20px rgba(0,0,0,0.12);
     --shadow-lg: 0 8px 40px rgba(0,0,0,0.18);
     --shadow-xl: 0 16px 60px rgba(0,0,0,0.25);
-    --shadow-glow-orange: 0 0 30px rgba(232, 116, 26, 0.3);
-    --shadow-glow-wine: 0 0 30px rgba(114, 47, 55, 0.3);
+    --shadow-glow-orange: 0 0 30px rgba(193, 123, 46, 0.3);
+    --shadow-glow-wine: 0 0 30px rgba(107, 58, 40, 0.3);
 
     /* Typography */
     --font-display: 'Outfit', sans-serif;
-    --font-body: 'Inter', sans-serif;
+    --font-body: 'Manrope', sans-serif;
 
     /* Spacing */
     --section-padding: clamp(4rem, 8vw, 8rem);
@@ -127,6 +134,15 @@ button {
 }
 
 /* ======================================
+   ICONS (Phosphor — replaces emoji icons)
+   ====================================== */
+i.ph {
+    font-size: 1em;
+    line-height: 1;
+    vertical-align: -0.125em;
+}
+
+/* ======================================
    Animations
    ====================================== */
 @keyframes fadeInUp {
@@ -146,7 +162,7 @@ button {
 
 @keyframes glow {
     0%, 100% { box-shadow: var(--shadow-glow-orange); }
-    50% { box-shadow: 0 0 50px rgba(232, 116, 26, 0.5); }
+    50% { box-shadow: 0 0 50px rgba(193, 123, 46, 0.5); }
 }
 
 @keyframes float {
@@ -330,9 +346,9 @@ button {
     position: absolute;
     inset: 0;
     background: 
-        radial-gradient(ellipse at 20% 50%, rgba(232, 116, 26, 0.08) 0%, transparent 60%),
-        radial-gradient(ellipse at 80% 20%, rgba(114, 47, 55, 0.1) 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 80%, rgba(92, 61, 46, 0.08) 0%, transparent 50%);
+        radial-gradient(ellipse at 20% 50%, rgba(193, 123, 46, 0.1) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(107, 58, 40, 0.1) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 80%, rgba(74, 50, 32, 0.08) 0%, transparent 50%);
     pointer-events: none;
 }
 
@@ -347,7 +363,7 @@ button {
     position: absolute;
     width: 3px;
     height: 3px;
-    background: rgba(232, 116, 26, 0.3);
+    background: rgba(193, 123, 46, 0.3);
     border-radius: 50%;
     animation: float 6s ease-in-out infinite;
 }
@@ -368,7 +384,7 @@ button {
     width: 180px;
     height: auto;
     margin: 0 auto;
-    filter: drop-shadow(0 0 40px rgba(232, 116, 26, 0.2));
+    filter: drop-shadow(0 0 40px rgba(193, 123, 46, 0.2));
     animation: float 6s ease-in-out infinite;
 }
 
@@ -431,18 +447,18 @@ button {
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 0 40px rgba(232, 116, 26, 0.5);
+    box-shadow: 0 0 40px rgba(193, 123, 46, 0.5);
 }
 
 .btn-outline {
-    border: 2px solid rgba(255,255,255,0.25);
+    border: 2px solid var(--steel);
     color: var(--white);
     background: rgba(255,255,255,0.05);
 }
 
 .btn-outline:hover {
     border-color: var(--orange);
-    background: rgba(232, 116, 26, 0.1);
+    background: rgba(193, 123, 46, 0.1);
     transform: translateY(-2px);
 }
 
@@ -462,13 +478,13 @@ button {
 }
 
 .btn-mock {
-    background: rgba(232, 116, 26, 0.15);
+    background: rgba(193, 123, 46, 0.15);
     color: var(--orange-light);
-    border: 1px solid rgba(232, 116, 26, 0.3);
+    border: 1px solid rgba(193, 123, 46, 0.3);
 }
 
 .btn-mock:hover {
-    background: rgba(232, 116, 26, 0.25);
+    background: rgba(193, 123, 46, 0.25);
 }
 
 .btn-icon {
@@ -530,14 +546,41 @@ button {
     position: relative;
 }
 
+.section-dark,
+.section-light {
+    position: relative;
+    isolation: isolate;
+}
+
+.section-dark::before,
+.section-light::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+}
+
 .section-dark {
     background: var(--gray-900);
     color: var(--white);
 }
 
+.section-dark::before {
+    background-image:
+        radial-gradient(ellipse at 15% 15%, rgba(193, 123, 46, 0.08) 0%, transparent 45%),
+        radial-gradient(ellipse at 85% 75%, rgba(107, 58, 40, 0.1) 0%, transparent 45%);
+}
+
 .section-light {
     background: var(--off-white);
     color: var(--gray-800);
+}
+
+.section-light::before {
+    background-image:
+        radial-gradient(ellipse at 85% 10%, rgba(193, 123, 46, 0.06) 0%, transparent 45%),
+        radial-gradient(ellipse at 10% 90%, rgba(74, 50, 32, 0.05) 0%, transparent 45%);
 }
 
 .section-gradient {
@@ -557,7 +600,7 @@ button {
 
 .section-tag {
     display: inline-block;
-    background: rgba(232, 116, 26, 0.12);
+    background: rgba(193, 123, 46, 0.12);
     color: var(--orange);
     padding: 0.4rem 1.2rem;
     border-radius: var(--radius-full);
@@ -566,12 +609,12 @@ button {
     text-transform: uppercase;
     letter-spacing: 0.1em;
     margin-bottom: 1rem;
-    border: 1px solid rgba(232, 116, 26, 0.2);
+    border: 1px solid rgba(193, 123, 46, 0.2);
 }
 
 .section-light .section-tag {
-    background: rgba(232, 116, 26, 0.08);
-    border-color: rgba(232, 116, 26, 0.15);
+    background: rgba(193, 123, 46, 0.08);
+    border-color: rgba(193, 123, 46, 0.15);
 }
 
 .section-title {
@@ -648,8 +691,8 @@ button {
     align-items: center;
     gap: 1rem;
     padding: 0.7rem 1rem;
-    background: rgba(255,255,255,0.05);
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+    background: linear-gradient(180deg, var(--steel) 0%, var(--steel-dark) 100%);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
 }
 
 .browser-dots {
@@ -741,7 +784,7 @@ button {
 }
 
 .service-item:hover {
-    background: rgba(232, 116, 26, 0.1);
+    background: rgba(193, 123, 46, 0.1);
     border-color: var(--orange);
     transform: translateX(4px);
 }
@@ -753,8 +796,14 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(232, 116, 26, 0.12);
+    background: rgba(193, 123, 46, 0.12);
     border-radius: var(--radius-sm);
+}
+.service-icon img.custom-icon {
+    width: 24px;        /* Tamanho proporcional (24px + 3px) */
+    height: 24px;
+    object-fit: contain;
+    display: block;
 }
 
 .service-info {
@@ -802,7 +851,7 @@ button {
     font-size: 0.85rem;
     margin-bottom: 1rem;
     padding: 0.5rem 0.8rem;
-    background: rgba(232, 116, 26, 0.1);
+    background: rgba(193, 123, 46, 0.1);
     border-radius: var(--radius-sm);
     border-left: 3px solid var(--orange);
 }
@@ -836,7 +885,7 @@ button {
 }
 
 .time-slot:hover:not(.unavailable) {
-    background: rgba(232, 116, 26, 0.15);
+    background: rgba(193, 123, 46, 0.15);
     border-color: var(--orange);
 }
 
@@ -1161,7 +1210,7 @@ button {
 .panel-tab.active {
     color: var(--orange);
     border-bottom-color: var(--orange);
-    background: rgba(232, 116, 26, 0.05);
+    background: rgba(193, 123, 46, 0.05);
 }
 
 .tab-icon {
@@ -1212,15 +1261,26 @@ button {
 }
 
 .meta-status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     font-size: 0.78rem;
-    background: rgba(232, 116, 26, 0.15);
+    background: rgba(193, 123, 46, 0.15);
     color: var(--orange);
     padding: 0.3rem 0.8rem;
     border-radius: var(--radius-full);
     font-weight: 600;
 }
 
-.meta-status-badge.pulse {
+.status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--orange);
+    flex-shrink: 0;
+}
+
+.meta-status-badge.pulse .status-dot {
     animation: pulse 2s ease-in-out infinite;
 }
 
@@ -1266,7 +1326,7 @@ button {
     stroke-dasharray: 534;
     stroke-dashoffset: 534;
     transition: stroke-dashoffset 2s cubic-bezier(0.4, 0, 0.2, 1);
-    filter: drop-shadow(0 0 8px rgba(232, 116, 26, 0.4));
+    filter: drop-shadow(0 0 8px rgba(193, 123, 46, 0.4));
 }
 
 .circular-inner {
@@ -1346,7 +1406,7 @@ button {
     border-radius: var(--radius-full);
     width: 0%;
     transition: width 2s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 0 10px rgba(232, 116, 26, 0.4);
+    box-shadow: 0 0 10px rgba(193, 123, 46, 0.4);
 }
 
 .meta-bar-text {
@@ -1378,7 +1438,7 @@ button {
 
 .meta-mini-card:hover {
     background: rgba(255,255,255,0.07);
-    border-color: rgba(232, 116, 26, 0.2);
+    border-color: rgba(193, 123, 46, 0.2);
     transform: translateX(4px);
 }
 
@@ -1425,7 +1485,7 @@ button {
 
 .fin-card.green { background: rgba(39, 174, 96, 0.08); border-color: rgba(39, 174, 96, 0.15); }
 .fin-card.red { background: rgba(231, 76, 60, 0.08); border-color: rgba(231, 76, 60, 0.15); }
-.fin-card.gold { background: rgba(232, 116, 26, 0.08); border-color: rgba(232, 116, 26, 0.15); }
+.fin-card.gold { background: rgba(193, 123, 46, 0.08); border-color: rgba(193, 123, 46, 0.15); }
 
 .fin-card-icon { font-size: 1.3rem; }
 
@@ -1498,7 +1558,7 @@ button {
 
 .chart-bar.highlight-bar {
     background: var(--gradient-primary);
-    box-shadow: 0 0 15px rgba(232, 116, 26, 0.3);
+    box-shadow: 0 0 15px rgba(193, 123, 46, 0.3);
 }
 
 .chart-bar-label {
@@ -1546,8 +1606,8 @@ button {
 }
 
 .report-link:hover {
-    background: rgba(232, 116, 26, 0.1);
-    border-color: rgba(232, 116, 26, 0.3);
+    background: rgba(193, 123, 46, 0.1);
+    border-color: rgba(193, 123, 46, 0.3);
     color: var(--orange-light);
 }
 
@@ -1654,12 +1714,12 @@ button {
 }
 
 .package-card:hover {
-    border-color: rgba(232, 116, 26, 0.3);
+    border-color: rgba(193, 123, 46, 0.3);
 }
 
 .package-card.featured {
-    background: rgba(232, 116, 26, 0.06);
-    border-color: rgba(232, 116, 26, 0.25);
+    background: rgba(193, 123, 46, 0.06);
+    border-color: rgba(193, 123, 46, 0.25);
 }
 
 .package-badge {
@@ -1967,8 +2027,8 @@ button {
 
 .tech-tag {
     padding: 0.4rem 1rem;
-    background: rgba(232, 116, 26, 0.08);
-    border: 1px solid rgba(232, 116, 26, 0.15);
+    background: rgba(193, 123, 46, 0.08);
+    border: 1px solid rgba(193, 123, 46, 0.15);
     border-radius: var(--radius-full);
     font-size: 0.78rem;
     font-weight: 500;
@@ -2031,7 +2091,7 @@ button {
     font-weight: 900;
     color: var(--orange);
     line-height: 1;
-    text-shadow: 0 0 40px rgba(232, 116, 26, 0.3);
+    text-shadow: 0 0 40px rgba(193, 123, 46, 0.3);
 }
 
 .proposal-installment {
@@ -2179,7 +2239,7 @@ button {
 .footer {
     padding: 2rem 0;
     background: var(--gray-900);
-    border-top: 1px solid rgba(255,255,255,0.05);
+    border-top: 1px solid rgba(193, 123, 46, 0.18);
 }
 
 .footer-content {
@@ -2256,7 +2316,7 @@ button {
 
 .floating-cta:hover {
     transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 0 50px rgba(232, 116, 26, 0.5);
+    box-shadow: 0 0 50px rgba(193, 123, 46, 0.5);
 }
 
 .floating-cta-pulse {

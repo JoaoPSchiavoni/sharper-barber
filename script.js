@@ -138,8 +138,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 bookingStep3.classList.remove('hidden');
                 successDetails.innerHTML = `
                     <strong>${selectedService}</strong><br>
-                    📅 ${today.toLocaleDateString('pt-BR')} às ${selectedTime}<br>
-                    💰 R$ ${selectedPrice},00
+                    <i class="ph ph-calendar-check"></i> ${today.toLocaleDateString('pt-BR')} às ${selectedTime}<br>
+                    <i class="ph ph-currency-circle-dollar"></i> R$ ${selectedPrice},00
                 `;
             }, 600);
         });
@@ -163,15 +163,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const chatScript = [
         { type: 'sent', text: 'Oi, quero agendar um corte de cabelo', delay: 500 },
         { type: 'typing', delay: 1200 },
-        { type: 'received', text: 'Olá! Bem-vindo ao Studio Sharper! 💈✂️\n\nFicarei feliz em ajudar você a agendar. Temos os seguintes serviços:', delay: 0 },
-        { type: 'received', text: '1️⃣ Corte Masculino — R$ 45\n2️⃣ Barba Completa — R$ 35\n3️⃣ Corte + Barba — R$ 70\n4️⃣ Pigmentação — R$ 55\n\nQual serviço você prefere?', delay: 800 },
+        { type: 'received', text: 'Olá! Bem-vindo ao Studio Sharper!\n\nFicarei feliz em ajudar você a agendar. Temos os seguintes serviços:', delay: 0 },
+        { type: 'received', text: '1. Corte Masculino — R$ 45\n2. Barba Completa — R$ 35\n3. Corte + Barba — R$ 70\n4. Pigmentação — R$ 55\n\nQual serviço você prefere?', delay: 800 },
         { type: 'sent', text: 'Quero o corte + barba', delay: 2000 },
         { type: 'typing', delay: 1500 },
-        { type: 'received', text: 'Ótima escolha! 🔥 O Corte + Barba é um dos nossos mais pedidos!\n\nTemos os seguintes horários disponíveis para hoje:', delay: 0 },
-        { type: 'received', text: '✅ 10:30\n✅ 14:00\n✅ 14:30\n✅ 16:00\n✅ 16:30\n\nQual horário fica melhor para você?', delay: 600 },
+        { type: 'received', text: 'Ótima escolha! O Corte + Barba é um dos nossos mais pedidos!\n\nTemos os seguintes horários disponíveis para hoje:', delay: 0 },
+        { type: 'received', text: '• 10:30\n• 14:00\n• 14:30\n• 16:00\n• 16:30\n\nQual horário fica melhor para você?', delay: 600 },
         { type: 'sent', text: '14:00', delay: 2000 },
         { type: 'typing', delay: 1500 },
-        { type: 'received', text: '✅ *Agendamento Confirmado!*\n\n📋 *Resumo:*\n• Serviço: Corte + Barba\n• Horário: Hoje às 14:00\n• Valor: R$ 70,00\n• Duração: ~50 min\n\nVou te enviar um lembrete 1h antes. Até lá! 😉💈', delay: 0 },
+        { type: 'received', text: '*Agendamento Confirmado!*\n\n*Resumo:*\n• Serviço: Corte + Barba\n• Horário: Hoje às 14:00\n• Valor: R$ 70,00\n• Duração: ~50 min\n\nVou te enviar um lembrete 1h antes. Até lá!', delay: 0 },
     ];
 
     function addChatMessage(type, text) {
@@ -385,5 +385,5 @@ document.addEventListener('DOMContentLoaded', () => {
     // ====== DATE DISPLAY ======
     // Already set above
 
-    console.log('🏢 Studio Sharper Landing Page — Powered by Mork Development Technology');
+    console.log('Studio Sharper Landing Page — Powered by Mork Development Technology');
 });
